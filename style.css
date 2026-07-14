@@ -1,0 +1,284 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    transition: all 0.5s;
+}
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #121212;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #3a3a3a;
+    border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+:root{
+    --black:rgb(97, 97, 97);
+    --white: rgb(255,255,255);
+}
+button{
+    transition: all 0.3s ease; 
+    cursor: pointer;
+}
+button:hover{
+    transform: scale(1.08);
+    box-shadow: 0 0 15px 5px black;
+}
+button:active{
+    opacity: 50%;    
+    transform: scale(0.7);    
+}
+
+body{    
+    background-size: contain;
+    background-color: #000000;
+
+}
+.container{
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+}
+.bg{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    background:linear-gradient(180deg,#1d1d26,#0f1015);
+    width: min(340px, 95vw);    
+    height: min(550px, 90vh);    
+    border-radius: 25px;
+    margin: auto;    
+    padding: 12px;
+
+}
+
+
+@property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+.bg::after, .bg::before{
+    --angle: 0deg;
+    content: '';
+    position: absolute;
+    width: min(340px, 95vw);    
+    height: min(550px, 90vh);
+    background-image: conic-gradient(from var(--angle), var(--white), var(--black), var(--white), var(--black), var(--white), var(--black), var(--white), var(--black), var(--white), var(--black), var(--white), var(--black), var(--white), var(--black), var(--white), var(--black), var(--white), var(--black), var(--white), var(--black), var(--white), var(--black), var(--white), var(--black), var(--white), var(--black), var(--white), var(--black), var(--white), var(--black), var(--white));
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+    padding: 3px;
+    border-radius: 29px;
+    animation: 12s spin linear infinite;
+}
+.bg::before{
+    filter: blur(0.5rem);
+}
+@keyframes spin{
+    from{
+        --angle: 0deg;
+    }
+    to{
+        --angle: 360deg;
+    }
+}
+
+
+.preview{
+    display: flex;
+    flex-direction: column;    
+    text-align: right;
+    width:100%;
+    background-color: white;
+    color: black;    
+    border: none;
+    height: 18vh;
+    border-radius: 25px;
+    padding: 5px;  
+    justify-content: center;  
+    box-shadow: 0 0 4px 5px #00000078;
+    
+}
+#input{    
+    text-align: right;
+    width: 100%;
+    border: none;
+    font-size: 43px;
+    font-family: sans-serif;
+    font-weight: 700;
+    border-radius: 15px;
+    padding: 0 8px;
+    justify-content: center;
+}
+.answer{
+    padding: 0px 8px;    
+    font-size: 20px;
+    
+}
+
+#input::placeholder{
+    color: black;
+}
+#input:focus{
+    outline: none;
+}
+.numpad{
+    display: grid;
+    grid-template-columns:repeat(4,1fr);
+    gap: 14px;
+    /* padding: 14px 14px 0px 14px; */
+    /* height: 80vh; */
+}
+.number{
+    font-size: 28px;
+    font-weight: 700;
+    padding: 5px;    
+    background-image: linear-gradient(white, rgb(214, 214, 214));
+    width: 100%;
+    height: min(74px, 11vh);
+    border-radius: 26px;
+    border: none;
+    box-shadow: 0 0 4px 5px #00000078;
+}
+
+#clear, #multi{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.operator{
+    background-image: linear-gradient(yellow, rgb(255, 208, 0));    
+}
+.lower{
+    /* padding: 10px 14px 0px 14px; */
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+}
+#equal{
+    background-image: linear-gradient(90deg,#ffe600,#ffc400);;    
+}
+#all_clear{
+    background-image: linear-gradient(rgb(252, 70, 70), red);    
+}
+#clear{
+    background-image: linear-gradient(orange, rgb(207, 135, 0));    
+}
+
+.theme{
+    background-color: white;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    display: flex;
+    align-items: center;    
+    border-radius: 21px;
+    padding: 7px;
+    gap: 10px;
+    width: 80px;
+    height: 38px;
+    cursor: pointer ;
+    box-shadow: inset 3px 3px 10px 0px #0000006b;
+}
+.theme::before :hover{
+    box-shadow: 0 0 0 0 white;
+}
+.sun{
+    position: absolute;
+    left: 13px;
+    display: flex;
+}
+.sun img{
+    transition: all 1s;
+}
+.theme .swap{
+    width: 30px;
+    height: 30px;
+    background-color: black;
+    border: none;
+    border-radius: 20px;
+    position: absolute;
+    right: 4px;
+    transition: all 0.25s linear;
+}
+.history{
+    width: 250px;
+    height: 100%;
+    background-color: rgb(26, 26, 26);
+    position: absolute;
+    left: -250px;
+    top: 0;
+    padding: 20px 12px 20px 22px;
+    box-shadow: 0 0 11px 2px #8080807a;
+    
+}
+.history h2{
+    color: yellow;
+    font-weight: bolder;
+    margin-bottom: 20px;
+    text-decoration: wavy;
+    text-decoration-line: underline;
+}
+.sections{
+    width: 216px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 83vh;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+.section{
+    background-color: white;
+    width: 196px;
+    padding: 4px 11px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+.section > *{
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+}
+.section:hover{
+    transform: scale(1.02);    
+    background-color: rgb(255, 255, 255);
+}
+.section:active{
+    transform: scale(0.94);
+
+}
+.h_answer{
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: -5px;
+}
+.his_icon{
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    cursor: pointer;
+    filter: invert(0);
+}
+.his_icon:hover{
+    transform: rotate(-360deg);
+}
+
+#close{
+    position: absolute;
+    top: 28px;
+    right: 24px;
+    width: 17px;
+    cursor: pointer;
+}

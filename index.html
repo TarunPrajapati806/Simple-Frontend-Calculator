@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>    
+    <div class="container">
+        <img width="40" src="history.svg" alt="" class="his_icon">
+        <div class="history">
+            <img id="close" src="close.svg" alt="">
+            <h2 class="heading">History</h2>
+            <div class="sections">
+            </div>
+        </div>
+        <div class="theme">
+            <div class="sun">
+                <img class="svg_sun"  src="sun.svg" alt="">
+            </div>
+            <div style="right: 4px;" class="swap"></div>
+        </div>
+        <div class="bg">
+            <div class="preview">
+                <input placeholder="0" id="input" type="text" autofocus>               
+                <div class="answer">Answer</div>
+            </div>
+            <div class="numpad">
+                <button id="all_clear" class="number">AC</button>
+                <button id="clear" class="number">
+                    <img width="25px" src="backspace.svg" alt="backspace_icon">
+                </button>
+                <button id="percent" class="number operator">%</button>
+                <button id="divide" class="number operator">÷</button>
+                <button id="7" class="number digit">7</button>
+                <button id="8" class="number digit">8</button>
+                <button id="9" class="number digit">9</button>
+                <button id="multi" class="number operator">
+                    <img width="17px" src="multiply.svg" alt="multiply icon">
+                </button>
+                <button id="4" class="number digit">4</button>
+                <button id="5" class="number digit">5</button>
+                <button id="6" class="number digit">6</button>
+                <button id="minus" class="number operator">-</button>
+                <button id="1" class="number digit">1</button>
+                <button id="2" class="number digit">2</button>
+                <button id="3" class="number digit">3</button>
+                <button id="+" class="number operator">+</button>
+            </div>
+            <div class="lower numpad">
+                <button id="." class="number digit">.</button>
+                <button id="0" class="number digit">0</button>
+                <button id="equal" class="number gold">=</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
