@@ -1,1 +1,1 @@
-Calculator Designe by Me
+Simple Calculator
